@@ -52,9 +52,9 @@ const productRouter = require("./routes/product");
 const shopRouter = require('./routes/shop')
 
 //mount routes
-// app.use('/',indexRouter)
+app.use('/',indexRouter);
 app.use('/product',productRouter);
-app.use('/shop',shopRouter)
+app.use('/shop',shopRouter);
 
 
 //connection  to port

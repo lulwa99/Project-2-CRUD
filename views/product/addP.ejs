@@ -1,6 +1,5 @@
 
-
-<form> 
+<form method="post" action="/product/addP"> 
    
     <div>
       <label>Product Name</label>
@@ -11,9 +10,9 @@
         <textarea name="description"></textarea>
     </div>
     <div>
-        <label> Price</label>
+        <label>Price $</label>
          <input type="number" name="Price" step="any"/>
-        <span class="input-group-text">$</span>
+        
     </div>
     <div>
         <label>Quantity</label>
@@ -21,14 +20,15 @@
     </div>
     <div>
         <label>Category</label>
-        <select name="category[]">
-            <option value=""> </option>
-            <option value=""></option>
-            <option value=""></option>
+        <select name="category">
+            <option value="building">Building</option>
+            <option value="using">Using</option>
+            <option value="basing">Basing</option>
         </select>
     </div>
     <div>
         <label>Details</label>
         <textarea name="details"></textarea>
     </div>
+    <button type="submit" class="col-6 form-control btn btn-secondary">Create Product</button>
 </form>
