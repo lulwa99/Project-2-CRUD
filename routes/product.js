@@ -1,46 +1,52 @@
 // express 
+const express = require('express');
+// initilize router functionality from express framework
+const router=express.Router();
+//IMPORTANT
+router.use(express.urlencoded({extended:true}));
 
-const express = require('express')
+
+//require index controller
+const productCtrl = require('../controllers/product');
 
 // create get 
 
-
-router.get("/add" /*, isLoggedIn*/, prdCntrl.prd_create_get);
+router.get("/add" /*, isLoggedIn*/, productCtrl.product_create_get);
 
 // create post 
 
-router.post("/add"/*, isLoggedIn*/, prdCntrl.prd_create_post)
+router.post("/add"/*, isLoggedIn*/, productCtrl.product_create_post)
 
 
 
 // index get 
 
 
-router.get("/index", prdCntrl.prd_index_get)
+router.get("/index", productCtrl.product_index_get)
 
 // show get 
 
 
-router.get("/detail", prdCntrl.prd_show_get)
+router.get("/detail", productCtrl.product_show_get)
 
 
 // edit get 
 
 
-router.get("/edit", prdCntrl.prd_edit_get)
+router.get("/edit", productCtrl.product_edit_get)
 
 
 // delete get 
 
 
-router.get("/delete", prdCntrl.prd_delete_get)
+router.get("/delete", productCtrl.product_delete_get)
 
 
 
 // update put 
 
 
-router.post("/update", prdCntrl.prd_update_put)
+router.post("/update", productCtrl.product_update_put)
 
 
 

@@ -46,10 +46,12 @@ const db = require("./config/db");
 //import Routes
 const indexRouter = require("./routes/index");
 const productRouter = require("./routes/product");
+const shopRouter = require('./routes/shop')
 
 //mount routes
-app.use('/',indexRouter)
+// app.use('/',indexRouter)
 app.use('/product',productRouter);
+app.use('/shop',shopRouter);
 
 
 //connection  to port
