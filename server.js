@@ -2,9 +2,12 @@
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
+const expressLayouts = require('express-ejs-layouts')
 
 //initialize express
 const app = express()
+
+app.use(expressLayouts)
 
 // app.use(express.urlencoded({extended:ture}));
 app.use(express.json());
@@ -51,7 +54,7 @@ const shopRouter = require('./routes/shop')
 //mount routes
 // app.use('/',indexRouter)
 app.use('/product',productRouter);
-app.use('/shop',shopRouter);
+app.use('/shop',shopRouter)
 
 
 //connection  to port
