@@ -1,20 +1,20 @@
-<form> 
+<form method="post" action="/product/update"> 
     <div>
-      <label>Product Name</label>
-      <input type="text" name="name" value="<%= product.name %>"/>
+      <label>editProduct Name</label>
+      <input type="text" name="name" value="<%= editProduct.name %>"/>
     </div>
     <div>
         <label>Description</label>
-        <textarea name="description"><%= product.description %></textarea>
+        <textarea name="description"><%= editProduct.description %></textarea>
     </div>
     <div >
         <label> Price</label>
-         <input type="number" name="Price" step="any" value="<%= product.price %>"/>
+         <input type="number" name="Price" step="any" value="<%= editProduct.price %>"/>
         <span class="input-group-text">BD</span>
     </div>
     <div>
         <label>Quantity</label>
-        <input type="number" name="quantity" step="any" value="<%= product.quantity %>"/>
+        <input type="number" name="quantity" step="any" value="<%= editProduct.quantity %>"/>
     </div>
     <div>
         <label>Category</label>
@@ -26,6 +26,8 @@
     </div>
     <div>
         <label>Details</label>
-        <textarea name="details"><%= product.details %></textarea>
+        <textarea name="details"><%= editProduct.details %></textarea>
     </div>
+    <input type="hidden" name="id" value="<%= editProduct._id %>" />
+    <button type="submit" class="col-6 form-control btn btn-secondary">Update Product</button>
 </form>
