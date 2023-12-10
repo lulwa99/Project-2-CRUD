@@ -50,11 +50,13 @@ const db = require("./config/db");
 const indexRouter = require("./routes/index");
 const productRouter = require("./routes/product");
 const shopRouter = require('./routes/shop')
+const orderRouter =require('./routes/order')
 
 //mount routes
 // app.use('/',indexRouter)
 app.use('/product',productRouter);
 app.use('/shop',shopRouter)
+app.use('/order',orderRouter)
 
 
 //connection  to port

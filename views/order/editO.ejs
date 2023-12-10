@@ -1,0 +1,24 @@
+<form method="POST" action="/order/editO"> 
+    <div>
+      <label> Name</label>
+      <input type="text" name="name" value="<%=order.name%>"/>
+    </div>
+    <div>
+        <label>totalPrice</label>
+       <input type="number" name="totalPrice" value="<%order.totalPrice"/>
+    </div>
+    <div>
+        <label> startDate</label>
+         <input type="date" name="startDate" step="any" value="<%=order.startDate%>"/>
+        
+    </div>
+    <div>
+        <label>endDate</label>
+        <input type="date" name="endDate"   value="<%= order.endDate %>"/>
+    </div>
+    <div>
+        <label>product</label>
+        <!--product-->
+    </div>
+   
+</form>
