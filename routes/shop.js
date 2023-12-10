@@ -2,6 +2,15 @@
 
 const express = require('express')
 
+// initilize router functionality from express framework
+const router=express.Router();
+//IMPORTANT
+router.use(express.urlencoded({extended:true}));
+
+
+//require index controller
+const shopCntrl = require('../controllers/shop');
+
 // create get 
 
 
@@ -16,7 +25,7 @@ router.post("/add"/*, isLoggedIn*/, shopCntrl.shop_create_post)
 // index get 
 
 
-router.get("/index", shopCntrl.shop_index_get)
+router.get("/", shopCntrl.shop_index_get)
 
 // show get 
 

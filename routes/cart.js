@@ -2,6 +2,12 @@
 
 const express = require('express')
 
+// initilize router functionality from express framework
+const router=express.Router();
+//IMPORTANT
+router.use(express.urlencoded({extended:true}));
+
+const cartCntrl = require('../controllers/cart')
 // create get 
 
 
@@ -43,6 +49,6 @@ router.get("/delete", cartCntrl.cart_delete_get)
 router.post("/update", cartCntrl.cart_update_put)
 
 
-
+//export router
 module.exports = router;
 

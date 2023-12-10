@@ -1,6 +1,15 @@
 // express 
 
-const express = require('express')
+const express = require('express');
+
+// initilize router functionality from express framework
+const router=express.Router();
+//IMPORTANT
+router.use(express.urlencoded({extended:true}));
+
+
+//require index controller
+const orderCntrl = require('../controllers/order');
 
 // create get 
 
@@ -42,7 +51,6 @@ router.get("/delete", orderCntrl.order_delete_get)
 
 router.post("/update", orderCntrl.order_update_put)
 
-
-
+//export router
 module.exports = router;
 
