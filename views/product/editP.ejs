@@ -1,0 +1,31 @@
+<form> 
+    <div>
+      <label>Product Name</label>
+      <input type="text" name="name" value="<%= product.name %>"/>
+    </div>
+    <div>
+        <label>Description</label>
+        <textarea name="description"><%= product.description %></textarea>
+    </div>
+    <div >
+        <label> Price</label>
+         <input type="number" name="Price" step="any" value="<%= product.price %>"/>
+        <span class="input-group-text">BD</span>
+    </div>
+    <div>
+        <label>Quantity</label>
+        <input type="number" name="quantity" step="any" value="<%= product.quantity %>"/>
+    </div>
+    <div>
+        <label>Category</label>
+        <select name="category[]">
+            <option></option>
+            <option></option>
+            <option></option>
+        </select>
+    </div>
+    <div>
+        <label>Details</label>
+        <textarea name="details"><%= product.details %></textarea>
+    </div>
+</form>
