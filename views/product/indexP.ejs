@@ -2,31 +2,33 @@
 <div>
     <!-- it should be float image-->
     <div>
-        <image>
-
-        </image>
+        <img />
     </div>
     <div>
+        <h5>Product</h5>
+        <% allProducts.forEach(aProducts => { %>
+            
+       
         <div>
-            <%= product.name %>
+            <%= aProducts.name %>
         </div>
         <div>
-            <%= product.description %>
+            <%= aProducts.description %>
         </div>
         <div>
     
-            <%= product.price %>
+            <%= aProducts.price %>
         </div>
         <div>
-            <%= product.quantity %>
+            <%= aProducts.quantity %>
         </div>
         <div>
-            <%= product.category[] %>
+            <%= aProducts.category %>
         </div>
         <div>
-            <%= product.details %>
+            <%= aProducts.details %>
         </div>
-    
+    <%  });  %>
     </div>
    
    
