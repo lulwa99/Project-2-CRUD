@@ -6,7 +6,7 @@ const passport = require('passport');
 //initialize express
 const app = express()
 
-app.use(express.urlencoded({extended:ture}));
+// app.use(express.urlencoded({extended:ture}));
 app.use(express.json());
 
 // dotenv configration
@@ -24,7 +24,7 @@ require('./config/passport');
 app.use(session ({
     secret: process.env.SECRET,
     resave:false,
-    saveUninitialized: tue
+    saveUninitialized: true
 }));
 
 //initialize passport 
