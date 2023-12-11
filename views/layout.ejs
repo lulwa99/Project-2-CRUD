@@ -9,37 +9,84 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <!-- <h2>Shared Header</h2> -->
-    <div class="container">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-          <div class="col-md-3 mb-2 mb-md-0">
-            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                <h2>Shop for Tools You Want</h2>
-            </a>
-          </div>
-    
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <!-- <li><a href="" class="btn btn-outline-primary">Products</a></li>
-            <li><a href="" class="btn btn-outline-primary">Shop</a></li>
-            <li><a href="" class="btn btn-outline-primary">Orders</a></li>
-            <li><a href="" class="btn btn-outline-primary">Cart</a></li> -->
-            <!-- <li><a href="" class="btn btn-outline-primary"></a></li>
-            <li><a href="" class="btn btn-outline-primary"></a></li> -->
+  <header>
+    <div class="px-3 py-2 text-bg-dark border-bottom">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+            <img src="/images/logo.png" alt="logo" width="40px" height="40px" />
+          </a>
 
-            <li><a href="/product/indexP" class="btn btn-outline-primary">Products</a></li>
-            <li><a href="/product/addP" class="btn btn-outline-primary">Add Products</a></li>
+          <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+            <li>
+              <a href="/" class="nav-link text-secondary">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
+                Orders
+              </a>
+            </li>
+            <li>
+              <a href="/product/indexP" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
+                Products
+              </a>
+            </li>
+            <li>
+              <a href="/product/addP" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
+                Add Products
+              </a>
+            </li>
+            <li>
+              <a href="/shop/indexP" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
+               Shops
+              </a>
+            </li>
+            <li>
+              <a href="/shop/addP" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
+                Add Shops
+              </a>
+            </li>
           </ul>
-        </header>
+        </div>
       </div>
-      
+    </div>
+    <div class="px-3 py-2 border-bottom mb-3">
+      <div class="container d-flex flex-wrap justify-content-center">
+        <% if(user){ %>
+        <div class="text-end">
+          <a href="" class="btn btn-light text-dark me-2">Logout</a>
+        </div>
+        <% }else{ %>
+          <div class="text-end">
+            <a href class="btn btn-light text-dark me-2">Login</a>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </header>
+  
     <hr>
     <%- body %>
     <hr>
 <!-- 
     <h2>Shared Footer</h2> -->
     <div class="footer">
-        <h4>Construction Shop &copy; 2023</h4>
+        <h4></h4>
     </div>
+
+    <footer class="py-5">
+      <div class="d-flex flex-column flex-sm-row justify-content-center py-4 my-4 border-top">
+        <p>Construction Shop &copy; 2023, Inc. All rights reserved.</p>
+      </div>
+    </footer>
 
 </body>
 </html>

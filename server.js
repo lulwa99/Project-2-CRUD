@@ -14,6 +14,10 @@ app.use(express.json());
 
 // dotenv configration
 require('dotenv').config();
+
+//NodeJS to look for all static files
+app.use(express.static(__dirname + '/public'));
+
 //port configration 
 const port = process.env.PORT;
 
@@ -49,8 +53,10 @@ const db = require("./config/db");
 //import Routes
 const indexRouter = require("./routes/index");
 const productRouter = require("./routes/product");
-const shopRouter = require('./routes/shop')
-const orderRouter =require('./routes/order')
+const shopRouter = require('./routes/shop');
+const orderRouter =require('./routes/order');
+const multer = require("multer");
+const upload = multer({ dest: "/public/images" });
 
 //mount routes
 app.use('/',indexRouter);

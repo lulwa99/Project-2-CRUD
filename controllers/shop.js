@@ -3,7 +3,6 @@
 const {Shop} = require('../models/Shop');
 
 
-
 exports.shop_create_get=(req,res) => { 
 
 res.render('shop/addS');

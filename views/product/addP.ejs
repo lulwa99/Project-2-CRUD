@@ -1,5 +1,5 @@
 
-<form method="post" action="/product/addP"> 
+<form method="post" action="/product/addP" enctype='multipart/form-data'> 
    
     <div>
       <label>Product Name</label>
@@ -29,6 +29,10 @@
     <div>
         <label>Details</label>
         <textarea name="details"></textarea>
+    </div>
+    <div>
+        <label>Product image</label>
+        <input type="file" name="image">
     </div>
     <button type="submit" class="col-6 form-control btn btn-secondary">Create Product</button>
 </form>

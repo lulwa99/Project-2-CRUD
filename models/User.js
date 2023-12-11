@@ -8,11 +8,15 @@ const userSchema = new Schema({
         require: true
     },
     email: String,
-    avatar: String
+    avatar: String,
+    userType:String,
 },{
     timestamps: true
 
 });
 
+//
+const User = mongoose.model('User',userSchema);
+
 //Export
-module.exports = mongoose.model('User',userSchema);
+module.exports = {User}
