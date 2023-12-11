@@ -42,7 +42,7 @@ app.use(passport.session());
 app.use(function(req,res,next){
     res.locals.user = req.user;
     next();
-})
+});
 
 //Nodejs to look into the folder called views for all the ejs files
 app.set("view engine","ejs");
@@ -57,6 +57,7 @@ const shopRouter = require('./routes/shop');
 const orderRouter =require('./routes/order');
 const multer = require("multer");
 const upload = multer({ dest: "/public/images" });
+
 
 //mount routes
 app.use('/',indexRouter);
