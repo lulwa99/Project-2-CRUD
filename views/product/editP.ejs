@@ -1,33 +1,40 @@
-<form method="post" action="/product/update"> 
+<div class="justify-content-center">
+<form method="POST" action="/product/updateP" class="col-6 "> 
+   
     <div>
-      <label>editProduct Name</label>
-      <input type="text" name="name" value="<%= editProduct.name %>"/>
+      <label class="col-6 form-label">Product Name</label>
+      <input type="text" name="name" class="col-6 form-control"  value="<%= editProduct.name %>"/>
     </div>
     <div>
-        <label>Description</label>
-        <textarea name="description"><%= editProduct.description %></textarea>
-    </div>
-    <div >
-        <label> Price</label>
-         <input type="number" name="Price" step="any" value="<%= editProduct.price %>"/>
-        <span class="input-group-text">BD</span>
+        <label class="col-6 form-label">Description</label>
+        <textarea name="description" class="col-6 form-control"><%= editProduct.description %></textarea>
     </div>
     <div>
-        <label>Quantity</label>
-        <input type="number" name="quantity" step="any" value="<%= editProduct.quantity %>"/>
+        <label class="col-6 form-label">Price $</label>
+         <input type="number" name="price" step="any" class="col-6 form-control" value="<%= editProduct.price %>"/>
+        
     </div>
     <div>
-        <label>Category</label>
-        <select name="category[]">
-            <option></option>
-            <option></option>
-            <option></option>
+        <label class="col-6 form-label">Quantity</label>
+        <input type="number" name="quantity"  class="col-6 form-control" value="<%= editProduct.quantity %>"/>
+    </div>
+    <div>
+        <label class="col-6 form-label">Category</label>
+        <select name="category" class="col-6 form-select">
+            <option value="building">Building</option>
+            <option value="using">Using</option>
+            <option value="basing">Basing</option>
         </select>
     </div>
     <div>
-        <label>Details</label>
-        <textarea name="details"><%= editProduct.details %></textarea>
+        <label class="col-6 form-label">Details</label>
+        <textarea name="details" class="col-6 form-control"><%= editProduct.details %></textarea>
+    </div>
+    <div style="margin: 0 0 0 10px;">
+        <label class="col-6 form-label">Product image</label>
+        <input type="file" name="image" class="col-6 form-image" value="">
     </div>
     <input type="hidden" name="id" value="<%= editProduct._id %>" />
     <button type="submit" class="col-6 form-control btn btn-secondary">Update Product</button>
 </form>
+</div>

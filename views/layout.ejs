@@ -25,9 +25,15 @@
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link text-white">
+              <a href="/order/indexO" class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
                 Orders
+              </a>
+            </li>
+            <li>
+              <a href="/order/addO" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
+                Add Order
               </a>
             </li>
             <li>
@@ -43,16 +49,34 @@
               </a>
             </li>
             <li>
-              <a href="/shop/indexP" class="nav-link text-white">
+              <a href="/shop/indexS" class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
                Shops
               </a>
             </li>
             <li>
-              <a href="/shop/addP" class="nav-link text-white">
+              <a href="/shop/addS" class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
                 Add Shops
               </a>
+            </li>
+            <li>
+              <% if(user){ %>
+                <li>
+                  <a href="/logout" class="nav-link text-white" style="border: 1px solid white; border-radius: 20px;">
+                    <svg class="bi d-block mx-auto mb-1" width="24" height="24" ><use xlink:href="#people-circle"></use></svg>
+                    Logout
+                  </a>
+                </li>
+                <% }else{ %>
+                  <li >
+                    <a href="/auth/google" class="nav-link text-white" style="border: 1px solid white; border-radius: 20px;">
+                      <svg class="bi d-block mx-auto mb-1" width="24" height="24" ><use xlink:href="#people-circle"></use></svg>
+                      Login
+                    </a>
+                  </li>
+                <% } %>
+
             </li>
           </ul>
         </div>
@@ -60,15 +84,7 @@
     </div>
     <div class="px-3 py-2 border-bottom mb-3">
       <div class="container d-flex flex-wrap justify-content-center">
-        <% if(user){ %>
-        <div class="text-end">
-          <a href="" class="btn btn-light text-dark me-2">Logout</a>
-        </div>
-        <% }else{ %>
-          <div class="text-end">
-            <a href class="btn btn-light text-dark me-2">Login</a>
-          </div>
-        <% } %>
+
       </div>
     </div>
   </header>

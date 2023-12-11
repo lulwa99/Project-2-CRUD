@@ -26,7 +26,6 @@ router.get("/indexP", productCtrl.product_index_get)
 
 // show get 
 
-
 router.get("/detailP", productCtrl.product_show_get)
 
 

@@ -1,25 +1,25 @@
 
-<form method="post" action="/order/addO"> 
+<form method="post" action="/order/addO" class="col-6"> 
     <div>
-      <label> Name</label>
-      <input type="text" name="name"/>
+      <label class="col-6 form-label"> Name</label>
+      <input type="text" name="name" class="col-6 form-control"/>
     </div>
     <div>
-        <label>totalPrice</label>
-       <input type="number" name="totalPrice"/>
+        <label class="col-6 form-label">Total Price $</label>
+       <input type="number" name="totalPrice" class="col-6 form-control"/>
     </div>
     <div>
-        <label>startDate</label>
-         <input type="date" name="startDate" step="any"/>
+        <label class="col-6 form-label">Start Date</label>
+         <input type="date" name="startDate" step="any" class="col-6 form-control"/>
         
     </div>
     <div>
-        <label>endDate</label>
-        <input type="date" name="endDate"  />
+        <label class="col-6 form-label">End Date</label>
+        <input type="date" name="endDate"   class="col-6 form-control"/>
     </div>
     <div>
         <label>product</label>
         <!--product-->
     </div>
-   <button type="submit">Creat Order</button>
+   <button type="submit">Create Order</button>
 </form>
