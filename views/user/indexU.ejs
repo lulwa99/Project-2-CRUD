@@ -1,0 +1,19 @@
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>avatar</th>
+        <th>UserType</th>
+    </tr>
+    <% alluser.forEach((userT)=>{%>
+          <tr>
+            <td><%=userT.name%></td>
+            <td><%=userT.email%></td>
+            <td><%=userT.userType%></td>
+            <!--avatar-->
+            <td><a href="/user/delete?id=<%= order._id %>">Delete</a></td>
+             <td><a href="/user/editUser?id=<%= order._id %>">Edit</a></td>
+          </tr>
+   <% }),%>
+   
+</table>
