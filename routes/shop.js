@@ -25,7 +25,9 @@ router.post("/addS"/*, isLoggedIn*/, shopCntrl.shop_create_post)
 // index get 
 
 
-router.get("/", shopCntrl.shop_index_get)
+router.get("/indexS", shopCntrl.shop_index_get)
+
+
 
 // show get 
 

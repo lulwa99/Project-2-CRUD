@@ -1,21 +1,27 @@
-
-<form>
+<h1>Edit Shop</h1>
+<form method="POST" action="/shop/updateS">
     <div>
        <label>Name</label>
-       <input type="name" name="name" />
+       <input type="text" name="name" value="<%=shop.name%>"/>
     </div>
     <div>
       <label>Email</label>
-      <input type="email"  name=" email"/>
+      <textarea   name="email" ><%=shop.email%></textarea>
     </div>
     <div>
       <label>PhoneNumber</label>
-      <input type="number" name="phoneNumber"/>
+      <input type="number" name="phoneNumber" value="<%=shop.phoneNumber%>"/>
     </div>
     <div>
       <label>Address</label>
-      <input type="number" name="address"  value="<%=shop.address %>"/>
+      <input type="text" name="address"  value="<%=shop.address %>"/>
     </div>
     <!--product-->
+
+    <input type="hidden" name="id" value="<%= shop._id%>" />
+
+
+<button type="submit">Update Shop</button>
+
     
    </form>
