@@ -5,7 +5,6 @@ const {Shop} = require('../models/Shop');
 const {Product} = require('../models/Product')
 
 exports.shop_create_get=(req,res) => { 
-
 res.render('shop/addS');
 }
 
@@ -24,8 +23,6 @@ exports.shop_create_post = (req,res)=> {
     shop.save()
 
     .then ( () => { 
-
-   
 
     res.redirect("/shop/indexS")
 

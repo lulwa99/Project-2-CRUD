@@ -52,9 +52,9 @@ exports.product_show_get=(req,res) => {
 }
 
 exports.product_edit_get=(req,res) => { 
-Product.findById(req.body.id)
+Product.findById(req.query.id)
 .then(editProduct=>{
-    res.render('product/edit',{editProduct})
+    res.render('product/editP',{editProduct})
 })
 .catch(err=>{
     console.log(err);

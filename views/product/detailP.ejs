@@ -2,24 +2,32 @@
 <img />
 </div>
 
-    <div>
-        <%= singleProduct.name %>
-    </div>
-    <div>
-        <%= singleProduct.description %>
-    </div>
-    <div>
+<div class="col">
+    <div class="card shadow-sm">
+      <img class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"src="/images/logo.png" width="100%" height="100%" fill="#55595c" width="100%" height="100%" fill="#55595c" />
+      <div class="card-body">
+        <p class="card-text"><%= singleProduct.name %><br>
+          <h6 style="color: gray;">        <%= singleProduct.category %></h6><br>
+         Description: <%= singleProduct.description %><br>
+         Price:  <%= singleProduct.price %>$<br>
+         Quantity:<%= singleProduct.quantity %><br>
+         Details:<%= singleProduct.details %>
 
-        <%= singleProduct.price %>
+      </p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+          <a href="/product/editP?id=<%= singleProduct._id %>">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Update</button>
+          </a>
+            <% if(user){ %>
+              <a href="/product/deleteP?id=<%= singleProduct._id %>">
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-trash-o"></i></button>
+                </a>
+            <% } %>
+          </div>
+          <small class="text-body-secondary">9 mins</small>
+        </div>
+      </div>
     </div>
-    <div>
-        <%= singleProduct.quantity %>
-    </div>
-    <div>
-        <%= singleProduct.category %>
-    </div>
-    <div>
-        <%= singleProduct.details %>
-    </div>
-
+  </div>
 

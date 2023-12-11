@@ -25,14 +25,14 @@
                         </p>
                           <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a href="/product/detailS?id=<%= aProducts._id %>">
-                              <button type="button"  class="btn btn-sm btn-outline-secondary">View</button>
+                                <a href="/product/detailP?id=<%= aProducts._id %>">
+                              <button  class="btn btn-sm btn-outline-secondary">View</button>
                             </a>
                             <a href="/product/editP?id=<%= aProducts._id %>">
                               <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                             </a>
                             <% if (user){ %>
-                                <a href="/product/editP?id=<%= aProducts._id %>">
+                                <a href="/product/deleteP?id=<%= aProducts._id %>">
                                     <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-trash-o"></i></button>
                                   </a>
                                   <% } %>
