@@ -46,10 +46,10 @@ router.get("/deleteO", orderCntrl.order_delete_get)
 
 
 
-// update put 
+// update post
 
 
-router.post("/updateO", orderCntrl.order_update_put)
+router.post("/updateO", orderCntrl.order_update_post)
 
 //export router
 module.exports = router;

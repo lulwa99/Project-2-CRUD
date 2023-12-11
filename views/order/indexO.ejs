@@ -13,8 +13,8 @@
           <td><%= orderItem.startDate%></td>
           <td><%= orderItem.endDate%></td>
            <!--product-->
-           <td><a href="/order/delete?id=<%= order._id %>">Delete</a></td>
-           <td><a href="/order/editorder?id=<%= order._id %>">Edit</a></td>
+           <td><a href="/order/deleteO?id=<%= orderItem._id %>">Delete</a></td>
+           <td><a href="/order/editO?id=<%= orderItem._id %>">Edit</a></td>
         </tr>
         
    <% }); %>

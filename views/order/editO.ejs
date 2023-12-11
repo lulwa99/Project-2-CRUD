@@ -1,24 +1,24 @@
-<form method="post" action="/order/editO"> 
+<form method="post" action="/order/updateO"> 
     <div>
-      <label> Name</label>
-      <input type="text" name="name" value="<%=order.name%>"/>
-    </div>
+        <label> Name</label>
+        <input type="text" name="name" value="<%=editorder.name%>"/>
+      </div>
     <div>
         <label>totalPrice</label>
-       <input type="number" name="totalPrice" value="<%order.totalPrice"/>
+       <input type="number" name="totalPrice" value="<%= editorder.totalPrice %>" />
     </div>
     <div>
         <label> startDate</label>
-         <input type="date" name="startDate" step="any" value="<%=order.startDate%>"/>
-        
+         <input type="date" name="startDate" step="any" value="<%=editorder.startDate%>"/>
     </div>
     <div>
         <label>endDate</label>
-        <input type="date" name="endDate"   value="<%= order.endDate %>"/>
+        <input type="date" name="endDate"  value="<%= editorder.endDate %>"/>
     </div>
     <div>
         <label>product</label>
      
     </div>
-   
+   <input type="hidden" name="id" value="<%= editorder._id%>">
+   <button type="submit">submit</button>
 </form>
