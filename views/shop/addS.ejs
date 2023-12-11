@@ -17,7 +17,19 @@
    <input type="text" name="address"/>
  </div>
 
+<div>
+  <label>Productes</label>
+  <select name="products[]">
+  <% prd.forEach((sh)=>{%>
+  
+    <option value="<%= sh._id %>"><%= sh.name %></option>
+  
+   <%  }); %>
+  </select>
+</div>
+
  <button type="submit">Create Shop</button>
- <!--product-->
+ 
+ 
  
 </form>
