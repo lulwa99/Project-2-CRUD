@@ -1,9 +1,6 @@
 //API / Functions
 const {Order}=require('../models/Order')
-const{Cart}= require('../models/Cart')
-const dayjs = require('dayjs')
-var relativeTime = require('dayjs/plugin/relativeTime')
-dayjs.extend(relativeTime)
+
 //create
 exports.order_create_get=(req,res) => { 
     res.render("order/addO");
@@ -17,33 +14,24 @@ let order = new Order(req.body);
 // save order
 order.save()
 .then(()=>{
-    req.body.order.forEach(cart => {
-        Cart.findById(cart)
-        .then((cart)=>{
-            cart.order.push(order);
-            cart.save();
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    })
-    res.redirect("/order/indexO");
+    res.redirect('/order/indexO')
 })
-.catch((err)=>{
+.catch(err=>{
     console.log(err);
-    res.send("please try again later!!")
 })
 
+           
+      
 }
 
 exports.order_index_get=(req,res) => { 
- Order.find().populate('product')
- .then((order)=>{
-    res.render("order/indexO",{order});
+ Order.find()
+ .then((corder)=>{
+    res.render("order/indexO",{corder});
  })
  .catch((err)=>{
     console.log(err);
-    res.render("order/indexO",{order:[]});
+    
  });
 
 
@@ -51,9 +39,9 @@ exports.order_index_get=(req,res) => {
 
 exports.order_show_get=(req,res) => { 
 console.log(req.query.id);
-Order.findById(req.query.id).populate('product')
-  .then((order)=>{
-    res.render("product/detail",{order})
+Order.findById(req.query.id)
+  .then((sorder)=>{
+    res.render("order/detailO",{sorder})
   })
   .catch((err)=>{
     console.log(err);
@@ -61,13 +49,13 @@ Order.findById(req.query.id).populate('product')
 }
 
 exports.order_edit_get=(req,res) => { 
- order.findByIdAndUpdate(req.query.id).populate("product")
- .them((order)=>{
-    res.render("/order/indeO",{order});
+ order.findById(req.query.id)
+ .them((editorder)=>{
+    res.render("/order/editO",{editorder});
  })
  .catch((err)=>{
     console.log(err);
-    res.redirect("/order/indexO");
+   
  })
 
 }
@@ -91,6 +79,6 @@ Order.findByIdAndUpdate(req.body.id,req.body)
      })
      .catch(err =>{
         console.log(err);
-        res.redirect("/order/indeO");
+       
      })
 }

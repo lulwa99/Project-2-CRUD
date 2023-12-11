@@ -6,8 +6,16 @@
         <th>endDate</th>
          <!--product-->
     </tr>
-    <tr>
-       
-    </tr>
+    <% corder.forEach((orderItem)=> {%>
+        <tr>
+          <td><%= orderItem.name%></td>
+          <td><%= orderItem.totalPrice%></td>
+          <td><%= orderItem.startDate%></td>
+          <td><%= orderItem.endDate%></td>
+           <!--product-->
+        </tr>
+        
+   <% }); %>
+   
     
 </table>
