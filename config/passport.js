@@ -26,6 +26,7 @@ passport.use(new GoogleStrategy(
                     googleId: profile.id,
                     email: profile.email[0].value,
                     avatar: profile.photos[0].value,
+                    userType:"Admin"
                 });
                 // Return the new user
                 return cb(null,user);

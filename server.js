@@ -9,7 +9,7 @@ const app = express()
 
 app.use(expressLayouts)
 
-// app.use(express.urlencoded({extended:ture}));
+// app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 // dotenv configration

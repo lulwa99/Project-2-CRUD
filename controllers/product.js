@@ -1,5 +1,8 @@
 //API / Functions
 const {Product}=require('../models/Product')
+const dayjs = require('dayjs')
+var relativeTime = require('dayjs/plugin/relativeTime')
+dayjs.extend(relativeTime);
 
 //CRUD Operations
 //HTTP Post - Create - post the data
@@ -13,7 +16,7 @@ exports.product_create_get=(req,res) => {
 
 
 exports.product_create_post=(req,res) => { 
-
+console.log(req.body);
 let product = new Product(req.body);
 
 product.save()
@@ -29,7 +32,7 @@ product.save()
 exports.product_index_get=(req,res) => { 
     Product.find()
     .then(allProducts=>{
-        res.render('product/indexP',{allProducts})
+        res.render('product/indexP',{allProducts,dayjs})
     })
     .catch(err=>{
         console.log(err);
@@ -40,7 +43,7 @@ exports.product_show_get=(req,res) => {
 
     Product.findById(req.query.id)
     .then(singleProduct=>{
-        res.render('product/detailP',{singleProduct})
+        res.render('product/detailP',{singleProduct,dayjs})
     })
     .catch(err=>{
         console.log(err);
