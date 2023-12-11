@@ -1,38 +1,39 @@
-
-<form method="post" action="/product/addP" enctype='multipart/form-data'> 
+<div class="justify-content-center">
+<form method="POST" action="/product/addP" class="col-6 "> 
    
     <div>
-      <label>Product Name</label>
-      <input type="text" name="name"/>
+      <label class="col-6 form-label">Product Name</label>
+      <input type="text" name="name" class="col-6 form-control"/>
     </div>
     <div>
-        <label>Description</label>
-        <textarea name="description"></textarea>
+        <label class="col-6 form-label">Description</label>
+        <textarea name="description" class="col-6 form-control"></textarea>
     </div>
     <div>
-        <label>Price $</label>
-         <input type="number" name="Price" step="any"/>
+        <label class="col-6 form-label">Price $</label>
+         <input type="number" name="price" step="any" class="col-6 form-control"/>
         
     </div>
     <div>
-        <label>Quantity</label>
-        <input type="number" name="quantity"  min="1" max="20"/>
+        <label class="col-6 form-label">Quantity</label>
+        <input type="number" name="quantity"   class="col-6 form-control"/>
     </div>
     <div>
-        <label>Category</label>
-        <select name="category">
+        <label class="col-6 form-label">Category</label>
+        <select name="category" class="col-6 form-select">
             <option value="building">Building</option>
             <option value="using">Using</option>
             <option value="basing">Basing</option>
         </select>
     </div>
     <div>
-        <label>Details</label>
-        <textarea name="details"></textarea>
+        <label class="col-6 form-label">Details</label>
+        <textarea name="details" class="col-6 form-control"></textarea>
     </div>
-    <div>
-        <label>Product image</label>
-        <input type="file" name="image">
+    <div style="margin: 0 0 0 10px;">
+        <label class="col-6 form-label">Product image</label>
+        <input type="file" name="image" class="col-6 form-image">
     </div>
     <button type="submit" class="col-6 form-control btn btn-secondary">Create Product</button>
 </form>
+</div>
