@@ -38,7 +38,7 @@ exports.order_index_get=(req,res) => {
 }
 
 exports.order_show_get=(req,res) => { 
-console.log(req.query.id);
+console.log(req.body.id);
 Order.findById(req.query.id)
   .then((sorder)=>{
     res.render("order/detailO",{sorder})
@@ -48,10 +48,13 @@ Order.findById(req.query.id)
   })
 }
 
-exports.order_edit_get=(req,res) => { 
- order.findById(req.query.id)
- .them((editorder)=>{
-    res.render("/order/editO",{editorder});
+exports.order_edit_get=(req,res) => {
+   console.log(req.query.id) 
+ Order.findById(req.query.id)
+ .then((editorder)=>{
+   console.log(editorder)
+   res.render("order/editO",{editorder});
+   
  })
  .catch((err)=>{
     console.log(err);
@@ -61,7 +64,7 @@ exports.order_edit_get=(req,res) => {
 }
 
 exports.order_delete_get=(req,res) => { 
-order.findByIdAndDelete(req.query.id)
+   Order.findByIdAndDelete(req.query.id)
 .then(()=>{
     res.redirect("/order/indexO");
 })
@@ -72,8 +75,8 @@ order.findByIdAndDelete(req.query.id)
 
 }
 
-exports.order_update_put= (req,res) => { 
-Order.findByIdAndUpdate(req.body.id,req.body)
+exports.order_update_post= (req,res) => { 
+ Order.findByIdAndUpdate(req.body.id,req.body)
      .then(()=>{
         res.redirect("/order/indexO");
      })
