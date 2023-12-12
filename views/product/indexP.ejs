@@ -31,6 +31,9 @@
                             <a href="/product/editP?id=<%= aProducts._id %>">
                               <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                             </a>
+                            <a href="/cart/addC?id=<%= aProducts._id %>">
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                            </a>
                             <% if (user){ %>
                                 <a href="/product/editP?id=<%= aProducts._id %>">
                                     <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-trash-o"></i></button>

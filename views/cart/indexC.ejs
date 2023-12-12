@@ -1,15 +1,27 @@
 <h4>Cart</h4>
-<% cart.product.forEach((product) => { %>
+<% cart.forEach((product) => { %>
 <ul>
         <div>   
-            <li><%= product.name %></li>
-            <li><%= product.description %></li>
-            <li><%= product.price %></li>
-            <li><%= product.quantity %></li>
-            <li><%= product.reviews %></li>
-            <li><%= product.category %></li>
-            <li><%= product.details %></li>
+            <li><%= product.products[0].name %></li>
+            <li><%= product.products[0].price %></li>
+            <li><%= product.products[0].quantity %></li>
+            <li><%= product.products[0].image %></li>
+            <li><%= product.products[0].description %></li>
+            <li><%= product.products[0].reviews %></li>
+            <li><%= product.products[0].category %></li>
+            <li><%= product.products[0].details %></li>
 
         </div> 
+
+        <button type="submit">Buy Now</button>
+        <!-- <button type="submit">Delete</button> -->
+
+        <td> <a href="/cart/deleteC?id=<%=product._id%>">Delete</a></td>
 </ul>
+<!-- 
+<p>< %= cart.createdAt %></p> -->
+
+
+
+
 <%});%>
