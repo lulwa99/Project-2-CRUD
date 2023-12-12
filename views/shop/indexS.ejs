@@ -4,7 +4,7 @@
         <th>Email</th>
         <th>Phone Number</th>
         <th>Address</th>
-         <!--product-->
+        <th>Product</th>
     </tr>
     <% shop.forEach((shop)=> {%>
         <tr>
@@ -12,7 +12,11 @@
           <td><%= shop.email%></td>
           <td><%= shop.phoneNumber%></td>
           <td><%= shop.address%></td>
-          
+          <td> 
+            <% shop.products.forEach((sh)=>{%>
+             "<%=sh.name%>"
+            <%  }); %>
+        </td>
 
     <td> <a href="/shop/editS?id=<%=shop._id%>">Edit</a> </td>
     <td> <a href="/shop/deleteS?id=<%=shop._id%>">Delete</a></td>

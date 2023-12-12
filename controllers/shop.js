@@ -5,7 +5,18 @@ const {Shop} = require('../models/Shop');
 const {Product} = require('../models/Product')
 
 exports.shop_create_get=(req,res) => { 
-res.render('shop/addS');
+
+
+    Product.find()
+    .then(prd=>{
+        res.render('shop/addS',{prd});
+    })
+    .catch(err=>{
+console.log(err);
+    })
+
+
+
 }
 
 
@@ -39,7 +50,7 @@ exports.shop_create_post = (req,res)=> {
 
 exports.shop_index_get=(req,res) => { 
 
-    Shop.find() 
+    Shop.find().populate('products')
 
     .then((shop) => { 
 
@@ -60,7 +71,7 @@ exports.shop_show_get=(req,res) => {
     console.log(req.query.id);
 
 
-    Shop.findById(req.query.id)
+    Shop.findById(req.query.id).populate('product')
 
     .then((shop) => { 
         res.render("shop/detailS", {shop})
@@ -75,8 +86,7 @@ exports.shop_show_get=(req,res) => {
 
 exports.shop_edit_get=(req,res) => { 
 
-    Shop.findById(req.query.id)
-
+    Shop.findById(req.query.id).populate('products')
     .then((shop) => { 
 
         res.render("shop/editS", {shop})
