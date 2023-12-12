@@ -40,8 +40,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(function(req,res,next){
-    console.log(req.user)
+    // console.log(req.user)
     res.locals.user = req.user;
+    console.log("locals",res.locals.user);
+    res.locals.userType = res.locals.user?res.locals.user.userType: undefined;
+
     next();
 });
 

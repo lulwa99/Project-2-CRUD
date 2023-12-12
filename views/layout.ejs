@@ -14,7 +14,7 @@
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-            <img src="/images/logo.png" alt="logo" width="40px" height="40px" />
+            <img src="/images/under-construction.webp" alt="logo" width="40px" height="40px" />
           </a>
 
           <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
@@ -25,16 +25,25 @@
               </a>
             </li>
             <li>
+              <a href="/cart/indexC" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                  <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"/>
+                </svg>
+           
+              </a>
+            </li>
+            <li>
               <a href="/order/indexO" class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
                 Orders
               </a>
             </li>
-            <li>
+            <!-- <li>
               <a href="/order/addO" class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
                 Add Order
-              </a>
+              </a> -->
             </li>
             <li>
               <a href="/product/indexP" class="nav-link text-white">
@@ -42,24 +51,29 @@
                 Products
               </a>
             </li>
+            <% if (userType == "Admin" || userType == "shop"){ %>
             <li>
               <a href="/product/addP" class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
                 Add Products
               </a>
             </li>
+            <% } %>
+            <% if (userType == "Admin"){ %>
             <li>
               <a href="/shop/indexS" class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
                Shops
               </a>
             </li>
+
             <li>
               <a href="/shop/addS" class="nav-link text-white">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
                 Add Shops
               </a>
             </li>
+            <% } %>
             <li>
               <% if(user){ %>
                 <li>
@@ -94,10 +108,6 @@
     <hr>
 <!-- 
     <h2>Shared Footer</h2> -->
-    <div class="footer">
-        <h4></h4>
-    </div>
-
     <footer class="py-5">
       <div class="d-flex flex-column flex-sm-row justify-content-center py-4 my-4 border-top">
         <p>Construction Shop &copy; 2023, Inc. All rights reserved.</p>

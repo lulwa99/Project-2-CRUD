@@ -1,6 +1,10 @@
 //API / Functions
+const { Cart } = require('../models/Cart');
 const {Order}=require('../models/Order')
 
+const dayjs = require('dayjs')
+var relativeTime = require('dayjs/plugin/relativeTime');
+dayjs.extend(relativeTime)
 //create
 exports.order_create_get=(req,res) => { 
     res.render("order/addO");
@@ -8,24 +12,41 @@ exports.order_create_get=(req,res) => {
 
 
 exports.order_create_post=(req,res) => { 
-console.log(req.body);
-let order = new Order(req.body);
+   Cart.findOne({userId:req.user._id})
+   .then(cart =>{
+      let order = new Order({
+         name:"Order",
+         startDate: Date.now(),
+         status:"Pending",
+         products:cart.products
+      });
+      // save order
+      order.save()
+      .then(()=>{
+         cart.products = []
+         cart.save().then(
+            ()=>res.redirect('/order/indexO')
+         )
+          
+      })
+      .catch(err=>{
+          console.log(err);
+      })
+      
+   })
+   // console.log(req.body);
+   // let order = new Order(req.body);
+   .catch(err=>{
+       console.log(err);
+   })
 
-// save order
-order.save()
-.then(()=>{
-    res.redirect('/order/indexO')
-})
-.catch(err=>{
-    console.log(err);
-})
 
            
       
 }
 
 exports.order_index_get=(req,res) => { 
- Order.find()
+ Order.find().populate('products')
  .then((corder)=>{
     res.render("order/indexO",{corder});
  })

@@ -4,26 +4,41 @@ const {Cart} = require('../models/Cart');
 const {Product} = require('../models/Product')
 
 exports.cart_create_get=(req,res) => { 
-
     let addProduct = req.query.id;
+    Cart.findOne({userId:req.user._id})
+    .then(cr=>{
 
-    console.log(addProduct);
+        if (cr){
+            cr.products.push(addProduct);
 
-    let cart = new Cart()
-
-    cart.products.push(addProduct);
-console.log(cart.products);
-
-
-
-
-    cart.save ()
-
-  .then (() => { 
-
-
-      res.redirect("/product/indexP")
-  })
+            cr.save ()
+        
+            .then (() => { 
+          
+          
+                res.redirect("/product/indexP")
+            })
+            
+        }
+        else{
+            // console.log(addProduct);
+        
+            let cart = new Cart({userId:req.user._id})
+        
+            cart.products.push(addProduct);
+            console.log(cart.products);
+        
+        
+            cart.save ()
+        
+          .then (() => { 
+        
+        
+              res.redirect("/product/indexP")
+          })
+        }
+    })
+    
 
 //   res.render('Cart/addC');
 
@@ -66,7 +81,7 @@ exports.cart_create_post=(req,res) => {
 exports.cart_index_get=(req,res) => { 
 
 
-    Cart.find().populate('products')
+    Cart.findOne({userId:req.user._id}).populate('products')
 
  .then((cart)=>{
 
