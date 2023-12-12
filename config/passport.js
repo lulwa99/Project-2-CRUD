@@ -12,14 +12,14 @@ passport.use(new GoogleStrategy(
     },
     async function(accessToken,refreshToken,profile,cb){
         try{
-            console.log("Google")
+            // console.log("Google", profile)
             //Look to see if the user exists
             let user = await User.findOne({
-               googleId: profile._id
+               googleId: profile.id
             });
             //if there is a user, return it
             if(user){
-    console.log("user0", user)
+    // console.log("user0", user)
 
                 return cb(null,user);
             }else{
@@ -29,7 +29,7 @@ passport.use(new GoogleStrategy(
                     googleId: profile.id,
                     email: profile.emails[0].value,
                     avatar: profile.photos[0].value,
-                    userType:"Admin"
+                    userType:"customer"
                 });
                 // Return the new user
                 return cb(null,user);
@@ -40,12 +40,12 @@ passport.use(new GoogleStrategy(
     }));
 
 passport.serializeUser(function(user,cb){
-    console.log("user", user)
+    // console.log("user", user)
     cb(null,user._id);  
 });
 
 passport.deserializeUser(async function(userId, cb){
-    console.log("userId", userId)
+    // console.log("userId", userId)
     //It's nice to be able to use await in-line!
     cb(null,await User.findById(userId));
 });

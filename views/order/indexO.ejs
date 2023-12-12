@@ -1,22 +1,24 @@
-<table>
-    <tr style="text-align: center;">
+<table style="text-align: center;" class="table table-dark table-striped-columns">
+    <tr >
         <th>Name</th>
-        <th>Total Price</th>
         <th>Start Date</th>
-        <th>End Date</th>
-        <th>Delete</th>
-        <th>Edit</th>
+        <th>Status</th>
+        <th>Products Ordered</th>
+        <!-- <th>Delete</th> -->
          <!--product-->
     </tr>
     <% corder.forEach((orderItem)=> {%>
         <tr style="text-align: center;">
           <td><%= orderItem.name%></td>
-          <td><%= orderItem.totalPrice%></td>
           <td><%= orderItem.startDate%></td>
-          <td><%= orderItem.endDate%></td>
+        <td><%= orderItem.status %></td>
+        <td><% orderItem.products.forEach(one=>{ %>
+            "<%= one.name %>"<br>
+        <% }) %>
+        </td>
            <!--product-->
-           <td><a href="/order/deleteO?id=<%= orderItem._id %>"><i class="fa fa-trash-o"></i></a></td>
-           <td><a href="/order/editO?id=<%= orderItem._id %>"><i class="fa fa-pencil"></i></a></td>
+           <!-- <td><a href="/order/deleteO?id=<%= orderItem._id %>"><i class="fa fa-trash-o"></i></a></td>
+           <td><a href="/order/editO?id=<%= orderItem._id %>"><i class="fa fa-pencil"></i></a></td> -->
         </tr>
         
    <% }); %>
