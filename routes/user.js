@@ -1,7 +1,11 @@
 // express 
-const express = require('express');
+
+const express = require('express')
+
 // initilize router functionality from express framework
 const router=express.Router();
+//IMPORTANT
+router.use(express.urlencoded({extended:true}));
 
 const multer = require("multer");
 const storage = multer.diskStorage({
@@ -19,50 +23,51 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage })
 
 
-//IMPORTANT
-router.use(express.urlencoded({extended:true}));
-
 
 //require index controller
-const productCtrl = require('../controllers/product');
+const userCntrl = require('../controllers/user');
 
 // create get 
 
-router.get("/addP" /*, isLoggedIn*/, productCtrl.product_create_get);
+
+router.get("/addU"/*, isLoggedIn*/, userCntrl.user_create_get);
 
 // create post 
 
-router.post("/addP"/*, isLoggedIn*/,upload.single('image'), productCtrl.product_create_post)
+router.post("/addU"/*, isLoggedIn*/, userCntrl.user_create_post)
 
 
 
 // index get 
 
 
-router.get("/indexP", productCtrl.product_index_get)
+router.get("/indexU", userCntrl.user_index_get)
+
+
 
 // show get 
 
-router.get("/detailP", productCtrl.product_show_get)
+
+router.get("/detailU", userCntrl.user_show_get)
 
 
 // edit get 
 
 
-router.get("/editP", productCtrl.product_edit_get)
+router.get("/editU", userCntrl.user_edit_get)
 
 
 // delete get 
 
 
-router.get("/deleteP", productCtrl.product_delete_get)
+router.get("/deleteU", userCntrl.user_delete_get)
 
 
 
 // update put 
 
 
-router.post("/updateP",upload.single('image'), productCtrl.product_update_put)
+router.post("/updateU",upload.single('avatar'), userCntrl.user_update_put)
 
 
 

@@ -1,5 +1,5 @@
 <div class="justify-content-center">
-<form method="POST" action="/product/updateP" class="col-6 "> 
+<form method="POST" action="/product/updateP" class="col-6 " enctype="multipart/form-data"> 
    
     <div>
       <label class="col-6 form-label">Product Name</label>
@@ -24,6 +24,7 @@
             <option value="building">Building</option>
             <option value="using">Using</option>
             <option value="basing">Basing</option>
+            <option value="Heavy Tools">Heavy Tools</option>
         </select>
     </div>
     <div>
@@ -31,7 +32,7 @@
         <textarea name="details" class="col-6 form-control"><%= editProduct.details %></textarea>
     </div>
     <div style="margin: 0 0 0 10px;">
-        <label class="col-6 form-label">Product image</label>
+        <label class="col-6 form-label">Product Image</label>
         <input type="file" name="image" class="col-6 form-image" value="">
     </div>
     <input type="hidden" name="id" value="<%= editProduct._id %>" />

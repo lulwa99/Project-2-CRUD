@@ -1,35 +1,44 @@
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone Number</th>
-        <th>Address</th>
-        <th>Product</th>
-    </tr>
-    <% shop.forEach((shop)=> {%>
-        <tr>
-          <td><%= shop.name%></td>
-          <td><%= shop.email%></td>
-          <td><%= shop.phoneNumber%></td>
-          <td><%= shop.address%></td>
-          <td> 
-            <% shop.products.forEach((sh)=>{%>
-             "<%=sh.name%>"
-            <%  }); %>
-        </td>
+<div class="album py-5 bg-body-tertiary">
+    <h3>View All Products</h3>
+      <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <% shop.forEach((shop)=> {%>
+                <div class="col">
+                    <div class="card shadow-sm">
+                      <img class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"src="/images/<%= shop.image %>" width="100%" height="100%" fill="#55595c" width="100%" height="100%" fill="#55595c" />
+                      <div class="card-body">
+                        <p class="card-text">Shop Name:<br><%= shop.name %><br>
+                         Shop Number: <br> <%= shop.phoneNumber %><br>
+                         Shop Address:<br><%= shop.address %><br>
+                         Shop Product List:  <% shop.products.forEach((sh)=>{%>
+                            "<%=sh.name%>"<br>
+                           <%  }); %>
 
-    <td> <a href="/shop/editS?id=<%=shop._id%>">Edit</a> </td>
-    <td> <a href="/shop/deleteS?id=<%=shop._id%>">Delete</a></td>
-    
-    
-    
-    </tr>
-    
-        <%})%>
-    
+                      </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                           
+                          <% if (userType=="Admin"){ %>
+                          <a href="/shop/editS?id=<%= shop._id %>">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                          </a>
+                          <% } %>
+                          <% if (userType=="Admin"){ %>
+                              <a href="/shop/deleteS?id=<%= shop._id %>">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-trash-o"></i></button>
+                                </a>
+                                <% } %>
+                          </div>
+                          <small class="text-body-secondary"><%= dayjs(shop.createdAt).fromNow(true) %></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                <%})%>
 
 
-
-   
-</table>
-
+            </div>
+        </div>
+        </div>
+        </div>

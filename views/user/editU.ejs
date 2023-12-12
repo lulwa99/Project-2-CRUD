@@ -1,20 +1,24 @@
-<form method="post" action="/user/editU">
+<form method="post" action="/user/updateU" enctype="multipart/form-data" class="col-6" style="margin: 20px;">
     <div>
-        <label>Name</label>
-        <input type="text" name="name" value="<%user.name%>"/>
-
+        <label class="col-6 form-label">Name</label>
+        <input type="text" name="name" value="<%= editUser.name %>" class="col-6 form-control"/>
     </div>
     <div>
-        <label> Email</label>
-        <input type="email" name=" email" value="<%user.email%>"/>
+        <label class="col-6 form-label">Email</label>
+        <input type="text" name="name" value="<%= editUser.email %>" disabled class="col-6 form-control"/>
     </div>
     <div>
-        <label> Avatar</label>
-        <img src="">
-        <input type="file" accept="image/*"/>
+        <label class="col-6 form-label">User Type</label>
+        <select name="userType" class="col-6 form-select" class="col-6 form-select">
+            <option value="Admin">Admin</option>
+            <option value="shop">Shop</option>
+            <option value="customer">Customer</option>
+        </select>
+    </div> 
+    <div style="margin: 20px;">
+        <label class="col-6 form-label">User Avatar</label>
+        <input type="file" name="avatar" class="col-6 form-image">
     </div>
-    <div>
-        <label>UserType</label>
-        <input type="text" name=" userType" value="<%user.userType%>"/>
-    </div>
+    <input type="hidden" name="xid" value="<%= editUser._id %>" />
+    <button type="submit" class="col- form-control btn btn-secondary">Update Information</button>
 </form>

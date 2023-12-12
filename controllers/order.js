@@ -48,7 +48,7 @@ exports.order_create_post=(req,res) => {
 exports.order_index_get=(req,res) => { 
  Order.find().populate('products')
  .then((corder)=>{
-    res.render("order/indexO",{corder});
+    res.render("order/indexO",{corder,dayjs});
  })
  .catch((err)=>{
     console.log(err);

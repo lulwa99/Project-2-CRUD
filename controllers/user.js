@@ -1,4 +1,5 @@
 //API / Functions
+const { log } = require('console');
 const {User}= require('../models/User')
 
 //CRUD Operations
@@ -39,9 +40,9 @@ exports.user_show_get=(req,res) =>{
     })
 }
 exports.user_edit_get=(req,res) =>{
-    User.findById(req.body.id)
+    User.findById(req.query.id)
     .then(editUser=>{
-        res.render('user/edit',{editUser})
+        res.render('user/editU',{editUser})
     })
     .catch(err=>{
         console.log(err);
@@ -59,8 +60,10 @@ exports.user_delete_get=(req,res)=>{
 }
 
 
-exports.user_update_post=(req,res)=>{
-    User.findByIdAndUpdate(req.body.id,req.body)
+exports.user_update_put=(req,res)=>{
+    console.log(req.body.xid);
+    req.body.avatar = req.file.filename;
+    User.findByIdAndUpdate(req.body.xid,req.body)
     .then(()=>{
         res.redirect('/user/indexU');
     })

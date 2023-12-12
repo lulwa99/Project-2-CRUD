@@ -6,6 +6,7 @@ const shopSchema = mongoose.Schema({
     email:String,
     phoneNumber:String,
     address:String,
+    image:String,
     products:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Product'

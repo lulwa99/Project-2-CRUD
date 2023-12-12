@@ -56,7 +56,7 @@ exports.product_show_get=(req,res) => {
 exports.product_edit_get=(req,res) => { 
 Product.findById(req.query.id)
 .then(editProduct=>{
-    res.render('product/editP',{editProduct})
+    res.render('product/editP',{editProduct,dayjs})
 })
 .catch(err=>{
     console.log(err);
@@ -76,6 +76,7 @@ Product.findByIdAndDelete(req.query.id)
 }
 
 exports.product_update_put=(req,res) => { 
+    req.body.image = req.file.filename;
 Product.findByIdAndUpdate(req.body.id,req.body)
 .then(()=>{
     res.redirect('/product/indexP');

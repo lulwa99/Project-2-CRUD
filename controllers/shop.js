@@ -2,7 +2,10 @@
 
 const {Shop} = require('../models/Shop');
 
-const {Product} = require('../models/Product')
+const {Product} = require('../models/Product');
+const dayjs = require('dayjs')
+var relativeTime = require('dayjs/plugin/relativeTime');
+dayjs.extend(relativeTime)
 
 exports.shop_create_get=(req,res) => { 
 
@@ -27,8 +30,8 @@ exports.shop_create_post = (req,res)=> {
     console.log(req.body); 
 
     let shop = new Shop(req.body)
-
-
+    
+    shop.image = req.file.filename;
     // save Shop
 
     shop.save()
@@ -55,7 +58,7 @@ exports.shop_index_get=(req,res) => {
     .then((shop) => { 
 
 
-        res.render("shop/indexS", {shop})
+        res.render("shop/indexS", {shop,dayjs})
     })
 .catch(err=>{
     console.log(err);
@@ -122,14 +125,12 @@ exports.shop_delete_get=(req,res) => {
 }
 
 exports.shop_update_put=(req,res) => { 
-
+    req.body.image = req.file.filename;
     Shop.findByIdAndUpdate (req.body.id, req.body)
-
     .then (() => { 
 
         res.redirect("/shop/indexS")
     })
-
     .catch ((err) => { 
 
         console.log(err);

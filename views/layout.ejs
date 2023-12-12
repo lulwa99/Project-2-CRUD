@@ -14,7 +14,7 @@
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-            <img src="/images/under-construction.webp" alt="logo" width="40px" height="40px" />
+            <img src="/images/under-construction.webp" alt="logo" width="70px" height="70px" />
           </a>
 
           <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
@@ -82,6 +82,22 @@
                     Logout
                   </a>
                 </li>
+                
+            <li>
+              <a href="/user/editU?id=<%= user._id %>" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
+                <img src="<%= user.avatar %>" style="height: 30px; height: px;">
+              </a>
+            </li>
+            <% if (userType == "Admin"){ %>
+              <li>
+                <a href="/user/indexU" class="nav-link text-secondary">
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+                 All Users
+                </a>
+              </li>
+              <% } %>
+
                 <% }else{ %>
                   <li >
                     <a href="/auth/google" class="nav-link text-white" style="border: 1px solid white; border-radius: 20px;">
@@ -108,9 +124,9 @@
     <hr>
 <!-- 
     <h2>Shared Footer</h2> -->
-    <footer class="py-5">
+    <footer class="py-5 text-light bg-dark">
       <div class="d-flex flex-column flex-sm-row justify-content-center py-4 my-4 border-top">
-        <p>Construction Shop &copy; 2023, Inc. All rights reserved.</p>
+        <p>Under Construction &copy; 2023, Inc. All rights reserved.</p>
       </div>
     </footer>
 
