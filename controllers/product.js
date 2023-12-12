@@ -18,7 +18,9 @@ exports.product_create_get=(req,res) => {
 exports.product_create_post=(req,res) => { 
 console.log(req.body);
 let product = new Product(req.body);
-
+console.log(req.file);
+// req.file.filename += ".jpg"
+product.image = req.file.filename;
 product.save()
 .then(()=>{
     res.redirect('/product/indexP')
