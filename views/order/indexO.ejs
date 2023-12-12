@@ -10,7 +10,7 @@
     <% corder.forEach((orderItem)=> {%>
         <tr style="text-align: center;">
           <td><%= orderItem.name%></td>
-          <td><%= orderItem.startDate%></td>
+          <td><%= dayjs(orderItem.startDate).fromNow(true)%> ago</td>
         <td><%= orderItem.status %></td>
         <td><% orderItem.products.forEach(one=>{ %>
             "<%= one.name %>"<br>

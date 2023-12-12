@@ -11,7 +11,7 @@ exports.cart_create_get=(req,res) => {
         if (cr){
             cr.products.push(addProduct);
 
-            cr.save ()
+            cr.save()
         
             .then (() => { 
           
@@ -29,7 +29,7 @@ exports.cart_create_get=(req,res) => {
             console.log(cart.products);
         
         
-            cart.save ()
+            cart.save()
         
           .then (() => { 
         
@@ -54,11 +54,8 @@ exports.cart_create_post=(req,res) => {
 
     let cart = new Cart(req.body)
 
-
     // save Cart
-
     cart.save()
-
     .then ( () => { 
 
    
