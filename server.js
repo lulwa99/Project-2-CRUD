@@ -56,8 +56,9 @@ const indexRouter = require("./routes/index");
 const productRouter = require("./routes/product");
 const shopRouter = require('./routes/shop');
 const orderRouter =require('./routes/order');
+const cartRouter = require('./routes/cart');
 const multer = require("multer");
-const upload = multer({ dest: "/public/images" });
+const upload = multer({ dest: "./public/images" });
 
 
 //mount routes
@@ -65,6 +66,7 @@ app.use('/',indexRouter);
 app.use('/product',productRouter);
 app.use('/shop',shopRouter);
 app.use('/order',orderRouter);
+app.use('/cart', cartRouter);
 
 
 //connection  to port
