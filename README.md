@@ -14,7 +14,7 @@ The Bahraini market is lacking platform for the construction market. We believe 
 ![Alt text](<public/images/Home-Page.png>)
 
 
-## Project Diagram: 
+## Project Entity Relationship Diagram: 
 
 
 ![Alt text](<public/images/Diagram.drawio (2).png>)
@@ -23,19 +23,24 @@ The Bahraini market is lacking platform for the construction market. We believe 
 
 a. User: 
 
-Is the customer or client of shops.
+Either the user is an Admin, Customer, or Shop Owner.
 
 Consists of: 
 
+- Name
 - Email 
-- Name 
 - Phone number 
 - Address 
 - Type
 
 b. Order:
 
-Is the product to be either sold or rented.
+Consists of: 
+
+- Order Name
+- User Details
+- Order Status
+- Products Ordered
 
 c. Cart 
 
@@ -50,7 +55,7 @@ Is the collection of products to be either sold or rented by the user
 
 d. Products: 
 
-Are the tools / equipment to be sold or rented by the shop 
+Are the tools/equipment to be sold or rented by the shop 
 
 ![Alt text](<public/images/Add-Product.png>)
 
@@ -86,12 +91,12 @@ https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&n
 
 ## Features
 
-- Responsive site 
+- Responsive Site 
 - Mobile Responsive
 - User Profile 
 - Shops 
-- products 
-- CRUD 
+- Products 
+- CRUD using MVC
 
 
 
@@ -99,16 +104,17 @@ https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&n
 
 - Technology used: 
   - Node.js
-  - Mongoose Database
+  - Mongoose
+  - MongoDB
   - Express 
   - EJS 
   - Multer 
-  - dayjs 
-  - express
-  - express-ejs-layouts
-  - express-session
-  - passport
-  - passport-google-oauth
+  - Dayjs 
+  - Express
+  - Express-ejs-layouts
+  - Express-session
+  - Passport
+  - Passport-google-oauth
   - Sign-up logging     functionality
 
 
