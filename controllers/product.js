@@ -1,7 +1,8 @@
 //API / Functions
 const {Product}=require('../models/Product')
 const dayjs = require('dayjs')
-var relativeTime = require('dayjs/plugin/relativeTime')
+var relativeTime = require('dayjs/plugin/relativeTime');
+const { default: mongoose } = require('mongoose');
 dayjs.extend(relativeTime);
 
 //CRUD Operations
@@ -101,3 +102,5 @@ Product.findByIdAndUpdate(req.body.id,req.body)
 })
 
 }
+
+
