@@ -1,13 +1,21 @@
-
+// API / Functions
 const {Cart} = require('../models/Cart');
 
 const {Product} = require('../models/Product')
 
+//CRUD Operations
+//HTTP Post - Create - post the data
+//HTTP Get - Read - retrives the data
+//HTTP PUT/POST - Update - updates the data
+//HTTP DELETE/GET/POST - Delete - Deletes the data
+
+// create the cart
 exports.cart_create_get=(req,res) => { 
     let addProduct = req.query.id;
+    // each user have one cart get the user cart
     Cart.findOne({userId:req.user._id})
     .then(cr=>{
-
+        // if the user have a cart then push the data directly
         if (cr){
             cr.products.push(addProduct);
 
@@ -20,6 +28,7 @@ exports.cart_create_get=(req,res) => {
             })
             
         }
+        // if the user does not have a cart make a new one
         else{
             // console.log(addProduct);
         
@@ -27,13 +36,10 @@ exports.cart_create_get=(req,res) => {
         
             cart.products.push(addProduct);
             console.log(cart.products);
-        
-        
+    
             cart.save()
         
-          .then (() => { 
-        
-        
+            .then (() => { 
               res.redirect("/product/indexP")
           })
         }
@@ -74,11 +80,11 @@ exports.cart_create_post=(req,res) => {
 } 
    
 
-
+// get the user cart
 exports.cart_index_get=(req,res) => { 
 
 
-    Cart.findOne({userId:req.user._id}).populate('products')
+ Cart.findOne({userId:req.user._id}).populate('products')
 
  .then((cart)=>{
 
@@ -128,9 +134,6 @@ Cart.findById(req.query.id)
 
     res.render("cart/editC", {cart})
 })
-
-
-
 .catch (err => { 
 
     console.log(err);
@@ -139,7 +142,7 @@ Cart.findById(req.query.id)
 }
 
 
-
+// delete a product from the cart
 exports.cart_delete_get=(req,res) => { 
 
     console.log(req.query.id); 
@@ -159,7 +162,6 @@ exports.cart_delete_get=(req,res) => {
     
     }
     
-
 exports.cart_update_put=(req,res) => { 
     console.log(req.body.id); 
 

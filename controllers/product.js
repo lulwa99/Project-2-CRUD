@@ -10,16 +10,19 @@ dayjs.extend(relativeTime);
 //HTTP PUT/POST - Update - updates the data
 //HTTP DELETE/GET/POST - Delete - Deletes the data
 
+//render product page
 exports.product_create_get=(req,res) => { 
     res.render('product/addP');
 }
 
-
+//update the prodcut
 exports.product_create_post=(req,res) => { 
 console.log(req.body);
 let product = new Product(req.body);
 console.log(req.file);
 // req.file.filename += ".jpg"
+
+//if there exist a file upload otherwise set as default
 if(req.file){
 product.image = req.file.filename;
 }
@@ -36,6 +39,7 @@ product.save()
 
 }
 
+// view all products 
 exports.product_index_get=(req,res) => { 
     Product.find()
     .then(allProducts=>{
@@ -46,6 +50,7 @@ exports.product_index_get=(req,res) => {
     })
 }
 
+// view one product
 exports.product_show_get=(req,res) => { 
 
     Product.findById(req.query.id)
@@ -58,6 +63,7 @@ exports.product_show_get=(req,res) => {
 
 }
 
+//render the product edit page with the correct data
 exports.product_edit_get=(req,res) => { 
 Product.findById(req.query.id)
 .then(editProduct=>{
@@ -69,6 +75,7 @@ Product.findById(req.query.id)
 
 }
 
+// delete product
 exports.product_delete_get=(req,res) => { 
 Product.findByIdAndDelete(req.query.id)
 .then(()=>{
@@ -79,8 +86,9 @@ Product.findByIdAndDelete(req.query.id)
 })
 
 }
-
+// update the product
 exports.product_update_put=(req,res) => {
+    //if there exist an image upload
     if(req.file){
         req.body.image = req.file.filename;
         }

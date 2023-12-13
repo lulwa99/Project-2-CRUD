@@ -1,6 +1,9 @@
+//require mongoose
 const mongoose = require('mongoose');
+// define a Schema based on mongoose schema
 const Schema = mongoose.Schema;
 
+//create user schema
 const userSchema = new Schema({
     name: String,
     googleId:{
@@ -15,7 +18,7 @@ const userSchema = new Schema({
 
 });
 
-//
+//make a model out of schema
 const User = mongoose.model('User',userSchema);
 
 //Export
