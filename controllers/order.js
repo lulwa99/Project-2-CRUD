@@ -26,6 +26,7 @@ exports.order_create_post=(req,res) => {
          name:"Order-"+Math.round(Math.random() * 1E9),
          startDate: Date.now(),
          status:"Pending",
+         userInfo:req.user._id,
          products:cart.products
       });
       // save order
@@ -55,7 +56,7 @@ exports.order_create_post=(req,res) => {
 }
 
 exports.order_index_get=(req,res) => { 
- Order.find().populate('products')
+ Order.find({userInfo:req.user._id}).populate('products')
  .then((corder)=>{
     res.render("order/indexO",{corder,dayjs});
  })
