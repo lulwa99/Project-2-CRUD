@@ -1,40 +1,43 @@
-<div>
-<form method="POST" action="/product/addP" class="col-6 " enctype="multipart/form-data"> 
-   
-    <div>
-      <label class="col-6 form-label">Product Name</label>
-      <input type="text" name="name" class="col-6 form-control"/>
-    </div>
-    <div>
-        <label class="col-6 form-label">Description</label>
-        <textarea name="description" class="col-6 form-control"></textarea>
-    </div>
-    <div>
-        <label class="col-6 form-label">Price $</label>
-         <input type="number" name="price" step="any" class="col-6 form-control"/>
-        
-    </div>
-    <div>
-        <label class="col-6 form-label">Quantity</label>
-        <input type="number" name="quantity"  class="col-6 form-control"/>
-    </div>
-    <div>
-        <label class="col-6 form-label">Category</label>
-        <select name="category" class="col-6 form-select" >
-            <option value="Building">Building</option>
-            <option value="Using">Using</option>
-            <option value="Basing">Basing</option>
-            <option value="Heavy Tools">Heavy Tools</option>
-        </select>
-    </div>
-    <div>
-        <label class="col-6 form-label">Details</label>
-        <textarea name="details" class="col-6 form-control"></textarea>
-    </div>
-    <div style="margin: 0 0 0 10px;">
-        <label class="col-6 form-label">Product Image</label>
-        <input type="file" name="image" class="col-6 form-image">
-    </div>
-    <button type="submit" class="col-6 form-control btn btn-secondary">Create Product</button>
-</form>
+
+    <div class="justify-content-center" >
+        <div style="display: flex; justify-content: center;">
+        <form method="POST" action="/product/addP" class="col-6 " enctype="multipart/form-data"> 
+           
+            <div>
+              <label class="col-6 form-label">Product Name</label>
+              <input type="text" name="name" class="col-6 form-control"/>
+            </div>
+            <div>
+                <label class="col-6 form-label">Description</label>
+                <textarea name="description" class="col-6 form-control"></textarea>
+            </div>
+            <div>
+                <label class="col-6 form-label">Price $</label>
+                 <input type="number" name="price" step="any" class="col-6 form-control"/>
+                
+            </div>
+            <div>
+                <label class="col-6 form-label">Quantity</label>
+                <input type="number" name="quantity"  class="col-6 form-control"/>
+            </div>
+            <div>
+                <label class="col-6 form-label">Category</label>
+                <select name="category" class="col-6 form-select" >
+                    <option value="Building">Building</option>
+                    <option value="Using">Using</option>
+                    <option value="Basing">Basing</option>
+                    <option value="Heavy Tools">Heavy Tools</option>
+                </select>
+            </div>
+            <div>
+                <label class="col-6 form-label">Details</label>
+                <textarea name="details" class="col-6 form-control"></textarea>
+            </div>
+            <div style="margin: 0 0 0 10px;">
+                <label class="col-6 form-label">Product Image</label>
+                <input type="file" name="image" class="col-6 form-image">
+            </div>
+            <button type="submit" class="col-6 form-control btn btn-secondary">Create Product</button>
+        </form>
+        </div>
 </div>
