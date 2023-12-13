@@ -1,6 +1,9 @@
+
 <div class="justify-content-center">
+<div style="display: flex; justify-content: center;" class="album py-5 bg-body-tertiary">
 <form method="POST" action="/product/updateP" class="col-6 " enctype="multipart/form-data"> 
-   
+   <div><h2 style="text-align: center;">Update Product</h2></div>
+   <br>
     <div>
       <label class="col-6 form-label">Product Name</label>
       <input type="text" name="name" class="col-6 form-control"  value="<%= editProduct.name %>"/>
@@ -35,7 +38,9 @@
         <label class="col-6 form-label">Product Image</label>
         <input type="file" name="image" class="col-6 form-image" value="">
     </div>
+    <br>
     <input type="hidden" name="id" value="<%= editProduct._id %>" />
     <button type="submit" class="col-6 form-control btn btn-secondary">Update Product</button>
 </form>
+</div>
 </div>

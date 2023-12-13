@@ -1,5 +1,8 @@
-<h1>Edit Shop</h1>
+<div style="display: flex; justify-content: center;" class="album py-5 bg-body-tertiary">
+
 <form method="post" action="/shop/updateS" enctype="multipart/form-data" class="col-6">
+  <h2 style="text-align: center;">Edit Shop</h2>
+  <br>
     <div>
        <label class="col-6 form-label">Name</label>
        <input type="text" name="name" value="<%=shop.name%>" class="col-6 form-control" />
@@ -35,7 +38,8 @@
 
     <input type="hidden" name="id" value="<%= shop._id%>" />
 
-
+<br>
 <button type="submit" class="col-6 form-control btn btn-secondary">Update Shop</button>
 
    </form>
+   </div>
