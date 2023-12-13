@@ -1,5 +1,8 @@
 // express 
 const express = require('express')
+
+const isLoggedIn = require('../config/isLoggendin');
+
 const multer = require("multer");
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -28,11 +31,11 @@ const shopCntrl = require('../controllers/shop');
 // create get 
 
 
-router.get("/addS"/*, isLoggedIn*/, shopCntrl.shop_create_get);
+router.get("/addS", isLoggedIn, shopCntrl.shop_create_get);
 
 // create post 
 
-router.post("/addS"/*, isLoggedIn*/,upload.single('image'), shopCntrl.shop_create_post)
+router.post("/addS", isLoggedIn,upload.single('image'), shopCntrl.shop_create_post)
 
 
 
@@ -52,20 +55,20 @@ router.get("/detailS", shopCntrl.shop_show_get)
 // edit get 
 
 
-router.get("/editS", shopCntrl.shop_edit_get)
+router.get("/editS", isLoggedIn, shopCntrl.shop_edit_get)
 
 
 // delete get 
 
 
-router.get("/deleteS", shopCntrl.shop_delete_get)
+router.get("/deleteS", isLoggedIn, shopCntrl.shop_delete_get)
 
 
 
 // update put 
 
 
-router.post("/updateS",upload.single('image'), shopCntrl.shop_update_put)
+router.post("/updateS", isLoggedIn,upload.single('image'), shopCntrl.shop_update_put)
 
 
 

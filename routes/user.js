@@ -1,6 +1,7 @@
 // express 
 
 const express = require('express')
+const isLoggedIn = require('../config/isLoggendin');
 
 // initilize router functionality from express framework
 const router=express.Router();
@@ -30,44 +31,44 @@ const userCntrl = require('../controllers/user');
 // create get 
 
 
-router.get("/addU"/*, isLoggedIn*/, userCntrl.user_create_get);
+router.get("/addU", isLoggedIn, userCntrl.user_create_get);
 
 // create post 
 
-router.post("/addU"/*, isLoggedIn*/, userCntrl.user_create_post)
+router.post("/addU", isLoggedIn, userCntrl.user_create_post)
 
 
 
 // index get 
 
 
-router.get("/indexU", userCntrl.user_index_get)
+router.get("/indexU", isLoggedIn, userCntrl.user_index_get)
 
 
 
 // show get 
 
 
-router.get("/detailU", userCntrl.user_show_get)
+router.get("/detailU", isLoggedIn, userCntrl.user_show_get)
 
 
 // edit get 
 
 
-router.get("/editU", userCntrl.user_edit_get)
+router.get("/editU", isLoggedIn, userCntrl.user_edit_get)
 
 
 // delete get 
 
 
-router.get("/deleteU", userCntrl.user_delete_get)
+router.get("/deleteU", isLoggedIn, userCntrl.user_delete_get)
 
 
 
 // update put 
 
 
-router.post("/updateU",upload.single('avatar'), userCntrl.user_update_put)
+router.post("/updateU", isLoggedIn,upload.single('avatar'), userCntrl.user_update_put)
 
 
 

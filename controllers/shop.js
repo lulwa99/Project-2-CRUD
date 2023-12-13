@@ -30,8 +30,12 @@ exports.shop_create_post = (req,res)=> {
     console.log(req.body); 
 
     let shop = new Shop(req.body)
-    
+    if(req.file){
     shop.image = req.file.filename;
+    } 
+    else{
+        shop.image = "default.png"
+    }
     // save Shop
 
     shop.save()
@@ -91,8 +95,14 @@ exports.shop_edit_get=(req,res) => {
 
     Shop.findById(req.query.id).populate('products')
     .then((shop) => { 
-
-        res.render("shop/editS", {shop})
+        Product.find()
+        .then(prd=>{
+            res.render("shop/editS", {shop,prd})
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+        
     })
 
     .catch (err => { 
@@ -125,7 +135,9 @@ exports.shop_delete_get=(req,res) => {
 }
 
 exports.shop_update_put=(req,res) => { 
+    if(req.file){
     req.body.image = req.file.filename;
+    }
     Shop.findByIdAndUpdate (req.body.id, req.body)
     .then (() => { 
 

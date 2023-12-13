@@ -62,7 +62,9 @@ exports.user_delete_get=(req,res)=>{
 
 exports.user_update_put=(req,res)=>{
     console.log(req.body.xid);
-    req.body.avatar = req.file.filename;
+    if(req.file){
+    req.body.avatar = "/images/"+req.file.filename;
+    }
     User.findByIdAndUpdate(req.body.xid,req.body)
     .then(()=>{
         res.redirect('/user/indexU');

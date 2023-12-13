@@ -2,6 +2,7 @@
 
 const express = require('express');
 
+const isLoggedIn = require('../config/isLoggendin');
 // initilize router functionality from express framework
 const router=express.Router();
 //IMPORTANT
@@ -14,11 +15,11 @@ const orderCntrl = require('../controllers/order');
 // create get 
 
 
-router.get("/addO"/*, isLoggedIn*/, orderCntrl.order_create_get);
+router.get("/addO", isLoggedIn, orderCntrl.order_create_get);
 
 // create post 
 
-router.post("/addO"/*, isLoggedIn*/, orderCntrl.order_create_post)
+router.post("/addO", isLoggedIn, orderCntrl.order_create_post)
 
 
 
@@ -36,20 +37,20 @@ router.get("/detailO", orderCntrl.order_show_get)
 // edit get 
 
 
-router.get("/editO", orderCntrl.order_edit_get)
+router.get("/editO", isLoggedIn, orderCntrl.order_edit_get)
 
 
 // delete get 
 
 
-router.get("/deleteO", orderCntrl.order_delete_get)
+router.get("/deleteO", isLoggedIn, orderCntrl.order_delete_get)
 
 
 
 // update post
 
 
-router.post("/updateO", orderCntrl.order_update_post)
+router.post("/updateO", isLoggedIn, orderCntrl.order_update_post)
 
 //export router
 module.exports = router;

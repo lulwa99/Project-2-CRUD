@@ -1,5 +1,6 @@
 // express 
 const express = require('express');
+const isLoggedIn = require('../config/isLoggendin');
 // initilize router functionality from express framework
 const router=express.Router();
 
@@ -28,11 +29,11 @@ const productCtrl = require('../controllers/product');
 
 // create get 
 
-router.get("/addP" /*, isLoggedIn*/, productCtrl.product_create_get);
+router.get("/addP" , isLoggedIn, productCtrl.product_create_get);
 
 // create post 
 
-router.post("/addP"/*, isLoggedIn*/,upload.single('image'), productCtrl.product_create_post)
+router.post("/addP", isLoggedIn,upload.single('image'), productCtrl.product_create_post)
 
 
 
@@ -49,20 +50,20 @@ router.get("/detailP", productCtrl.product_show_get)
 // edit get 
 
 
-router.get("/editP", productCtrl.product_edit_get)
+router.get("/editP", isLoggedIn, productCtrl.product_edit_get)
 
 
 // delete get 
 
 
-router.get("/deleteP", productCtrl.product_delete_get)
+router.get("/deleteP", isLoggedIn, productCtrl.product_delete_get)
 
 
 
 // update put 
 
 
-router.post("/updateP",upload.single('image'), productCtrl.product_update_put)
+router.post("/updateP", isLoggedIn,upload.single('image'), productCtrl.product_update_put)
 
 
 

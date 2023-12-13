@@ -1,5 +1,5 @@
 <h1>Edit Shop</h1>
-<form method="post" action="/shop/updateS" enctype="multipart/form-data">
+<form method="post" action="/shop/updateS" enctype="multipart/form-data" class="col-6">
     <div>
        <label class="col-6 form-label">Name</label>
        <input type="text" name="name" value="<%=shop.name%>" class="col-6 form-control" />
@@ -19,11 +19,13 @@
     <!--product-->
 
     <div>
-      <label class="col-6 form-label">Products</label>
-      <select name="products[]" class="col-6 form-select" multiple="multiple">
-        <% shop.products.forEach((sh)=>{%>
-       <option value="<%= sh._id %>">   "<%=sh.name%>" </option>
-         <%  }); %>
+      <label class="col-6 form-label">Products <% shop.products.forEach((sh)=>{%>
+        "<%=sh.name%>" 
+        <%  }); %></label>
+          <select name="products[]" class="col-6 form-select" multiple="multiple">
+      <% prd.forEach(onePrd=>{%>
+        <option value="<%= onePrd._id %>"><%= onePrd.name %></option>
+     <% }) %>
       </select>
     </div>
     <div>
