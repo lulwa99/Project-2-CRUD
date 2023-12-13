@@ -83,7 +83,6 @@ exports.cart_create_post=(req,res) => {
 // get the user cart
 exports.cart_index_get=(req,res) => { 
 
-
  Cart.findOne({userId:req.user._id}).populate('products')
 
  .then((cart)=>{
@@ -180,7 +179,7 @@ exports.cart_delete_get=(req,res) => {
 exports.cart_update_put=(req,res) => { 
     console.log(req.body.id); 
 
-    Article.findByIdAndUpdate(req.body.id, req.body)
+    Cart.findByIdAndUpdate(req.body.id, req.body)
 
     .then (() => { 
 
@@ -192,4 +191,5 @@ exports.cart_update_put=(req,res) => {
         console.log(err);
     })
 }
+
 

@@ -7,6 +7,7 @@ name:String,
 startDate:Date,
 endDate:Date,
 status:String,
+userInfo:String,
 products:[{
     type:mongoose.Schema.Types.ObjectId,
     ref:"Product"
