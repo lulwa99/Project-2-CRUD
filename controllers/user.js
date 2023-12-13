@@ -10,6 +10,7 @@ const {User}= require('../models/User')
 exports.user_create_get=(req,res) =>{
     res.render('user/addU');
 }
+
 exports.user_create_post=(req,res)=>{
     let user = new User(req.body);
     user.save()
@@ -20,6 +21,8 @@ exports.user_create_post=(req,res)=>{
         console.log(err);
     })
 }
+
+//get all useres in the system
 exports.user_index_get=(req,res) =>{
     User.find()
     .then(alluser=>{
@@ -29,6 +32,7 @@ exports.user_index_get=(req,res) =>{
         console.log(err);
     })
 }
+// render one user information in page
 exports.user_show_get=(req,res) =>{
     User.findById(req.query.id)
     .then(Suser=>{
@@ -38,6 +42,8 @@ exports.user_show_get=(req,res) =>{
         console.log(err);
     })
 }
+
+// render one user information to be edited in page
 exports.user_edit_get=(req,res) =>{
     User.findById(req.query.id)
     .then(editUser=>{
@@ -47,6 +53,8 @@ exports.user_edit_get=(req,res) =>{
         console.log(err);
     })
 }
+
+//delete user
 exports.user_delete_get=(req,res)=>{
     User.findByIdAndDelete(req.query.id)
     .then(()=>{
@@ -57,10 +65,10 @@ exports.user_delete_get=(req,res)=>{
         console.log(err);
     })
 }
-
-
+// update user info
 exports.user_update_put=(req,res)=>{
     console.log(req.body.xid);
+    // if there is an image upload
     if(req.file){
     req.body.avatar = "/images/"+req.file.filename;
     }

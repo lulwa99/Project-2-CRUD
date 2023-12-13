@@ -2,20 +2,28 @@
 const { Cart } = require('../models/Cart');
 const {Order}=require('../models/Order')
 
+//CRUD Operations
+//HTTP Post - Create - post the data
+//HTTP Get - Read - retrives the data
+//HTTP PUT/POST - Update - updates the data
+//HTTP DELETE/GET/POST - Delete - Deletes the data
+
 const dayjs = require('dayjs')
 var relativeTime = require('dayjs/plugin/relativeTime');
 dayjs.extend(relativeTime)
-//create
+
+
+//render the order page
 exports.order_create_get=(req,res) => { 
     res.render("order/addO");
 }
 
-
+// create the order based on the user cart
 exports.order_create_post=(req,res) => { 
    Cart.findOne({userId:req.user._id})
    .then(cart =>{
       let order = new Order({
-         name:"Order",
+         name:"Order-"+Math.round(Math.random() * 1E9),
          startDate: Date.now(),
          status:"Pending",
          products:cart.products
@@ -23,6 +31,7 @@ exports.order_create_post=(req,res) => {
       // save order
       order.save()
       .then(()=>{
+         //empty the user cart after adding the order 
          cart.products = []
          cart.save().then(
             ()=>res.redirect('/order/indexO')
