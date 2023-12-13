@@ -1,4 +1,9 @@
+
+<div style="display: flex; justify-content: center;"class="album py-5 bg-body-tertiary">
+    
 <form method="post" action="/user/updateU" enctype="multipart/form-data" class="col-6" style="margin: 20px;">
+    <div><h2 style="text-align: center;"> Update User</h2></div>
+    <br>
     <div>
         <label class="col-6 form-label">Name</label>
         <input type="text" name="name" value="<%= editUser.name %>" class="col-6 form-control"/>
@@ -24,3 +29,4 @@
     <input type="hidden" name="xid" value="<%= editUser._id %>" />
     <button type="submit" class="col- form-control btn btn-secondary">Update Information</button>
 </form>
+</div>

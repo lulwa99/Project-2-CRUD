@@ -1,8 +1,11 @@
 
-    <div class="justify-content-center" >
-        <div style="display: flex; justify-content: center;">
-        <form method="POST" action="/product/addP" class="col-6 " enctype="multipart/form-data"> 
-           
+    <div class="justify-content-center"  >
+        <div style="display: flex; justify-content: center;" class="album py-5 bg-body-tertiary">
+        <form method="POST" action="/product/addP" class="col-6 " enctype="multipart/form-data"  > 
+           <div>
+            <h1 style="text-align: center;">Add Product</h1>
+           </div>
+           <br>
             <div>
               <label class="col-6 form-label">Product Name</label>
               <input type="text" name="name" class="col-6 form-control"/>
@@ -37,7 +40,11 @@
                 <label class="col-6 form-label">Product Image</label>
                 <input type="file" name="image" class="col-6 form-image">
             </div>
-            <button type="submit" class="col-6 form-control btn btn-secondary">Create Product</button>
+            <br>
+            <div>
+                <button type="submit" class="col-6 form-control btn btn-secondary">Create Product</button>
+            </div>
+           
         </form>
         </div>
 </div>
