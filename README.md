@@ -1,107 +1,111 @@
-# Project-2-CRUD
 
+# Construction Equipments/ Tools E-Commerce Site 
 
-# Construction Equipments / Tools E-Commerce Site 
+A brief description of what this project does and who it's for
 
-## Team Name: Binaa team 
-
-## Team Members: 
-
-- ![#c5f015] /*Hussain Zuhair*/ 
-Lulwa Felaifal 
-Khalid Abdulmajeed 
-
-
-Overview: 
+Binaa team
+## Overview
 
 
 The construction e-commerce “Aqar / Binaa” is a platform for construction shops and companies to show their products, equipment, and tools ..etc. for the customers online. 
 
 The Bahraini market is lacking platform for the construction market. We believe that the platform is a step to move towards digitalizing the sector. 
 
-Project Diagram: 
+![Alt text](public/images/Homepage.png)
+
+
+## Project Diagram: 
 
 
 
-Platform Map: 
+## Platform Map: 
 
+a. User: 
 
-The platform contains: 
-
-User: 
 Is the customer or client of shops.
-Consists of: 
-Email 
-Name 
-Phone number 
-Address 
-Type 
 
-Order:
+Consists of: 
+
+- Email 
+- Name 
+- Phone number 
+- Address 
+- Type
+
+b. Order:
+
 Is the product to be either sold or rented.
-Cart 
+
+c. Cart 
+
 Is the collection of products to be either sold or rented by the user
-Consists of: 
-Date (end-start) 
-Order details 
-Status 
 
-Products: 
+- Consists of: 
+  -  Date (end-start) 
+  -  Order details 
+  -  Status 
+
+
+d. Products: 
+
 Are the tools / equipment to be sold or rented by the shop 
-Consists of: 
-Image 
-Name 
-Price 
-Description 
-Quantity 
-Reviews 
-Category 
-Details 
+
+![Alt text](<public/images/add product.png>)
 
 
 
+- Consists of: 
+  - Image 
+  - Name
+  - Price
+  - Description 
+  - Quantity 
+  - Reviews 
+  - Category 
+  - Details 
 
+e. Shop
 
-
-
-
-
-
-
-
-Shop
 Is the company or construction shop that will offer its products to the clients 
-Consists of:
-Name 
-Email 
-Phone 
-Address 
+- Consists of:
+
+  - Name 
+  - Email
+  - Phone
+  - Address 
 
 
 
 
 
+## Features
+
+- Responsive site 
+- Mobile Responsive
+- User Profile 
+- Shops 
+- products 
+- CRUD 
 
 
 
+## Project Requirements
+
+- Technology used: 
+  - Node.js
+  - Mongoose Database
+  - Express 
+  - EJS 
+  - Multer 
+  - dayjs 
+  - express
+  - express-ejs-layouts
+  - express-session
+  - passport
+  - passport-google-oauth
+  - Sign-up logging     functionality
 
 
-
-Database relationship: 
-
-
-User to Product: 
-1 to M
-User to Order 
-1 to M. 
-Order to Cart
-1 to 1 
-Cart to Product 
-1 to M 
-Product to Shop 
-M to 1
-
-
-
-
+  
+## Screenshots
 
