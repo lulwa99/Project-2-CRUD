@@ -29,7 +29,7 @@ passport.use(new GoogleStrategy(
                     googleId: profile.id,
                     email: profile.emails[0].value,
                     avatar: profile.photos[0].value,
-                    userType:"Admin"
+                    userType:"customer"
                 });
                 // Return the new user
                 return cb(null,user);
