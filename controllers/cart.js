@@ -163,7 +163,7 @@ exports.cart_delete_get=(req,res) => {
             res.redirect("/cart/indexC"); 
         })
         .catch(err=>{
-
+            console.log(err);
         })
     
     
