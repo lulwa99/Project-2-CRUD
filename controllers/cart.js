@@ -142,11 +142,9 @@ Cart.findById(req.query.id)
 
 exports.cart_delete_get=(req,res) => { 
 
-
-
     console.log(req.query.id); 
 
-    Cart.findByIdAndDelete(req.query.id)
+    Product.findByIdAndDelete(req.query.id)
     
     .then (()=> {
     

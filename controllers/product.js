@@ -20,7 +20,12 @@ console.log(req.body);
 let product = new Product(req.body);
 console.log(req.file);
 // req.file.filename += ".jpg"
+if(req.file){
 product.image = req.file.filename;
+}
+else{
+    product.image = "default.png"
+}
 product.save()
 .then(()=>{
     res.redirect('/product/indexP')
@@ -75,8 +80,10 @@ Product.findByIdAndDelete(req.query.id)
 
 }
 
-exports.product_update_put=(req,res) => { 
-    req.body.image = req.file.filename;
+exports.product_update_put=(req,res) => {
+    if(req.file){
+        req.body.image = req.file.filename;
+        }
 Product.findByIdAndUpdate(req.body.id,req.body)
 .then(()=>{
     res.redirect('/product/indexP');

@@ -2,6 +2,8 @@
 
 const express = require('express')
 
+const isLoggedIn = require('../config/isLoggendin');
+
 // initilize router functionality from express framework
 const router=express.Router();
 //IMPORTANT
@@ -11,11 +13,11 @@ const cartCntrl = require('../controllers/cart')
 // create get 
 
 
-router.get("/addC"/*, isLoggedIn*/, cartCntrl.cart_create_get);
+router.get("/addC", isLoggedIn, cartCntrl.cart_create_get);
 
 // create post 
 
-router.post("/addC"/*, isLoggedIn*/, cartCntrl.cart_create_post)
+router.post("/addC", isLoggedIn, cartCntrl.cart_create_post)
 
 
 
@@ -33,20 +35,20 @@ router.get("/detailC", cartCntrl.cart_show_get)
 // edit get 
 
 
-router.get("/editC", cartCntrl.cart_edit_get)
+router.get("/editC", isLoggedIn, cartCntrl.cart_edit_get)
 
 
 // delete get 
 
 
-router.get("/deleteC", cartCntrl.cart_delete_get)
+router.get("/deleteC", isLoggedIn, cartCntrl.cart_delete_get)
 
 
 
 // update put 
 
 
-router.post("/updateC", cartCntrl.cart_update_put)
+router.post("/updateC", isLoggedIn, cartCntrl.cart_update_put)
 
 
 //export router
