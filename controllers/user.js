@@ -1,5 +1,4 @@
 //API / Functions
-const { log } = require('console');
 const {User}= require('../models/User')
 
 //CRUD Operations

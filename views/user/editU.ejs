@@ -7,6 +7,7 @@
         <label class="col-6 form-label">Email</label>
         <input type="text" name="name" value="<%= editUser.email %>" disabled class="col-6 form-control"/>
     </div>
+    <% if (userType == "Admin"){ %>
     <div>
         <label class="col-6 form-label">User Type</label>
         <select name="userType" class="col-6 form-select" class="col-6 form-select">
@@ -15,6 +16,7 @@
             <option value="customer">Customer</option>
         </select>
     </div> 
+    <% } %>
     <div style="margin: 20px;">
         <label class="col-6 form-label">User Avatar</label>
         <input type="file" name="avatar" class="col-6 form-image">
