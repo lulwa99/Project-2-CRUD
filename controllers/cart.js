@@ -146,12 +146,26 @@ Cart.findById(req.query.id)
 exports.cart_delete_get=(req,res) => { 
 
     console.log(req.query.id); 
+    console.log("User"+req.user._id);
+    Cart.findOne({userId:req.user._id})
+   
+    .then ((cart)=> {
+        console.log("cart"+cart);
+        for(let i=0;i<cart.products.length;i++){
+            
+            if(cart.products[i].toString()==req.query.id){
+                console.log("Working");
+                cart.products.splice(i,1);
+            }
+        }
+        Cart.findByIdAndUpdate(cart._id,cart)
+        .then(()=>{
+            res.redirect("/cart/indexC"); 
+        })
+        .catch(err=>{
 
-    Product.findByIdAndDelete(req.query.id)
+        })
     
-    .then (()=> {
-    
-    res.redirect("/cart/indexC"); 
     
     })
     
@@ -162,6 +176,7 @@ exports.cart_delete_get=(req,res) => {
     
     }
     
+
 exports.cart_update_put=(req,res) => { 
     console.log(req.body.id); 
 

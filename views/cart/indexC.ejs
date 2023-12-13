@@ -23,7 +23,8 @@
             <td><%= product.description %></td>
             <td><%= product.details %></td>
 
-        <td> <a href="/cart/deleteC?id=<%=product._id%>"><i class="fa fa-trash-o"></i></a></td>
+        <td> <a href="/cart/deleteC?id=<%= product._id%>" ><i class="fa fa-trash-o"></i></a></td>
+        <!-- <input type="hidden" name="pid" value="" /> -->
 </tr>
 <!-- 
 <p>< %= cart.createdAt %></p> -->
